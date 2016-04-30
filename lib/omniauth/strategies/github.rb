@@ -1,6 +1,12 @@
 module OmniAuth
   module Strategies
     class Clearbit < OmniAuth::Strategies::OAuth2
+      option :client_options, {
+        site: 'https://clearbit.com',
+        authorize_url: 'https://clearbit.com/oauth/authorize',
+        token_url: 'https://clearbit.com/oauth/access_token'
+      }
+
       uid { raw_info['id'].to_s }
 
       info do
