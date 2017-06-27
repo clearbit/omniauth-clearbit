@@ -1,10 +1,27 @@
+require 'omniauth/strategies/oauth2'
+
 module OmniAuth
   module Strategies
     class Clearbit < OmniAuth::Strategies::OAuth2
+      def self.site
+        ENV['OMNIAUTH_STRATEGIES_CLEARBIT_SITE'] ||
+          'https://clearbit.com'
+      end
+
+      def self.authorize_url
+        ENV['OMNIAUTH_STRATEGIES_CLEARBIT_AUTHORIZE_URL'] ||
+          'https://clearbit.com/oauth/authorize'
+      end
+
+      def self.token_url
+        ENV['OMNIAUTH_STRATEGIES_CLEARBIT_TOKEN_URL'] ||
+          'https://clearbit.com/oauth/access_token'
+      end
+
       option :client_options, {
-        site: 'https://clearbit.com',
-        authorize_url: 'https://clearbit.com/oauth/authorize',
-        token_url: 'https://clearbit.com/oauth/access_token'
+        site:          site,
+        authorize_url: authorize_url,
+        token_url:     token_url
       }
 
       uid { raw_info['id'].to_s }
