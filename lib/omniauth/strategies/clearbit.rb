@@ -1,3 +1,5 @@
+require 'omniauth-oauth2'
+
 module OmniAuth
   module Strategies
     class Clearbit < OmniAuth::Strategies::OAuth2
