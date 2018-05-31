@@ -17,11 +17,13 @@ In dev, this might look like
 
     use OmniAuth::Builder do
         provider :clearbit,
-          ENV['CLEARBIT_KEY'],
+          ENV['CLEARBIT_CONSUMER_KEY'],
           ENV['CLEARBIT_CONSUMER_SECRET'],
           client_options: {
-            site:          'https://apihub.dev.clearbit.io',
-            authorize_url: 'https://apihub.dev.clearbit.io/oauth/authorize',
-            token_url:     'https://apihub.dev.clearbit.io/oauth/access_token'
+            site:          ENV['OMNIAUTH_CLEARBIT_SITE'].presence,
+            authorize_url: ENV['OMNIAUTH_CLEARBIT_AUTHORIZE_URL'].presence,
+            token_url:     ENV['OMNIAUTH_CLEARBIT_TOKEN_URL'].presence
           }
       end
+
+The actual ENV values should reflect the env you are working in - i.e. in development,
