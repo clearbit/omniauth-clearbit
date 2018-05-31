@@ -27,3 +27,4 @@ In dev, this might look like
       end
 
 The actual ENV values should reflect the env you are working in - i.e. in development,
+the `OMNIAUTH_CLEARBIT_SITE` var should be set to the root dev url for APIHub.
