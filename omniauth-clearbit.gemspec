@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = OmniAuth::Clearbit::VERSION
 
-  gem.add_dependency 'omniauth', '~> 1.0'
+  gem.add_dependency 'omniauth', '~> 2.0.0'
   # Nothing lower than omniauth-oauth2 1.1.1
   # http://www.rubysec.com/advisories/CVE-2012-6134/
   gem.add_dependency 'omniauth-oauth2', '>= 1.1.1', '< 2.0'
