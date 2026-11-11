@@ -16,12 +16,13 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = OmniAuth::Clearbit::VERSION
 
-  gem.add_dependency 'omniauth', '~> 1.0'
+  gem.add_dependency 'omniauth', '>= 1.0', '< 3'
   # Nothing lower than omniauth-oauth2 1.1.1
   # http://www.rubysec.com/advisories/CVE-2012-6134/
   gem.add_dependency 'omniauth-oauth2', '>= 1.1.1', '< 2.0'
   gem.add_development_dependency 'rake', '~> 13.0'
   gem.add_development_dependency 'rspec', '~> 3.13'
+  gem.add_development_dependency 'rack-session'
   gem.add_development_dependency 'rack-test'
   gem.add_development_dependency 'simplecov'
   gem.add_development_dependency 'webmock'
