@@ -4,9 +4,9 @@ module OmniAuth
   module Strategies
     class Clearbit < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        site: 'https://clearbit.com',
-        authorize_url: 'https://clearbit.com/oauth/authorize',
-        token_url: 'https://clearbit.com/oauth/access_token',
+        site: 'https://dashboard.clearbit.com',
+        authorize_url: 'https://dashboard.clearbit.com/oauth/authorize',
+        token_url: 'https://dashboard.clearbit.com/oauth/access_token',
         auth_scheme: :request_body
       }
 

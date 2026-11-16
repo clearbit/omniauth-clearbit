@@ -15,21 +15,21 @@ describe OmniAuth::Strategies::Clearbit do
 
       expect(last_response.status).to eq(302)
       location = URI(last_response.headers['Location'])
-      expect("#{location.scheme}://#{location.host}#{location.path}").to eq('https://clearbit.com/oauth/authorize')
+      expect("#{location.scheme}://#{location.host}#{location.path}").to eq('https://dashboard.clearbit.com/oauth/authorize')
       expect(Rack::Utils.parse_query(location.query)).to include('client_id' => 'client-id')
     end
   end
 
   describe 'callback phase' do
     before do
-      stub_request(:post, 'https://clearbit.com/oauth/access_token')
+      stub_request(:post, 'https://dashboard.clearbit.com/oauth/access_token')
         .with(body: hash_including('client_id' => 'client-id', 'client_secret' => 'client-secret', 'code' => 'code'))
         .to_return(
           headers: { 'Content-Type' => 'application/json' },
           body: { access_token: 'token', token_type: 'bearer' }.to_json
         )
 
-      stub_request(:get, 'https://clearbit.com/oauth/account')
+      stub_request(:get, 'https://dashboard.clearbit.com/oauth/account')
         .with(query: hash_including('access_token' => 'token'))
         .to_return(
           headers: { 'Content-Type' => 'application/json' },
